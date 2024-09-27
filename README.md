@@ -4,7 +4,7 @@ Ce projet est une application CRUD complète utilisant **NestJS** pour l'API bac
 
 ## Prérequis
 
-- [Node.js](https://nodejs.org/) (version 14 ou plus récente)
+- [Node.js](https://nodejs.org/) (version 18 ou plus récente)
 - [NPM](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
 - [MySQL](https://www.mysql.com/) (pour la base de données)
 
@@ -17,7 +17,9 @@ Ce projet est une application CRUD complète utilisant **NestJS** pour l'API bac
    ```sql
    -- Créer la base de données
    CREATE DATABASE database_name;
-
+   
+  use database_name;
+  
    -- Créer la table des personnes
    CREATE TABLE person (
        id INT AUTO_INCREMENT PRIMARY KEY,
@@ -61,17 +63,20 @@ Accédez au répertoire du projet sur vscode ou autres:
 ### Configurez l'environnement  de variable .env
 
 .env
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=root
-DB_PASS=
-DB_NAME=database_name
+HOST=localhost
+PORT=3306
+DATABASE=database_name
+DB_USERNAME=root
+DB_PASSWORD=
+
+APP_PORT=3001
+ORIGIN_URL_FRONT=http://localhost:3000
 
 ### Demarrer nestjs
 
 npm run start:dev
 
-uri:[### le port peut changer si 3000 est déjà occupé ](http://localhost:3000/graphql)
+uri:[### le port peut changer si 3000 est déjà occupé ](http://localhost:3001/graphql)
 
 ### Installation et Configuration du Frontend (NextJS)
 
@@ -87,7 +92,7 @@ NEXT_PUBLIC_API_URL=http://localhost:3000/graphql
 ### Demarrer nextjs
 
 npm run dev
-uri:[### le port peut changer si 3000 est déjà occupé ](http://localhost:3001/)
+uri:[### le port peut changer si 3000 est déjà occupé ](http://localhost:3000/)
 
 
 ### Technologies Utilisées
