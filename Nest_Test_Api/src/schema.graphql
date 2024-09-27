@@ -1,0 +1,86 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Animal {
+  id: Int!
+  name: String!
+  dateOfBirth: DateTime!
+  species: String!
+  breed: String!
+  color: String
+  weight: Float!
+  owner: Person
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Person {
+  id: Int!
+  lastName: String!
+  firstName: String!
+  email: String!
+  phoneNumber: String!
+  animals: [Animal!]
+}
+
+type Query {
+  getPerson: [Person!]!
+  getPersonById(id: Int!): Person
+  personWithMostAnimals: Person!
+  personWithMostCats: String!
+  WeightAnimalOwner: Animal!
+  personWeightAnimalsGroup: String!
+  getAnimal: [Animal!]
+  getAnimalById(id: Int!): Animal!
+  getOldAnimal: Animal!
+  getMostSpecies: String!
+}
+
+type Mutation {
+  createPerson(createPersonInput: CreatePersonInput!): Person!
+  updatePerson(updatePersonInput: UpdatePersonInput!): Person!
+  removePerson(id: Int!): String!
+  createAnimal(createAnimalInput: CreateAnimalInput!): Animal!
+  updateAnimal(updateAnimalInput: UpdateAnimalInput!): Animal!
+  removeAnimal(id: Int!): String!
+}
+
+input CreatePersonInput {
+  lastName: String
+  firstName: String
+  email: String
+  phoneNumber: String
+}
+
+input UpdatePersonInput {
+  lastName: String
+  firstName: String
+  email: String
+  phoneNumber: String
+  id: Int!
+}
+
+input CreateAnimalInput {
+  name: String!
+  dateOfBirth: DateTime
+  species: String!
+  breed: String
+  color: String
+  weight: Float!
+  ownerId: Int
+}
+
+input UpdateAnimalInput {
+  name: String
+  dateOfBirth: DateTime
+  species: String
+  breed: String
+  color: String
+  weight: Float
+  ownerId: Int
+  id: Int!
+}

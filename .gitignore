@@ -1,0 +1,59 @@
+# Dépendances Node.js
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Fichiers de configuration et environnement
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Output compilé des projets Nest et Next
+/dist
+/.next
+/out
+/build
+
+# Logs et rapports de débogage
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Test coverage
+/coverage
+/.nyc_output
+
+# Système d'exploitation et fichiers temporaires
+.DS_Store
+*.pem
+.temp
+.tmp
+Thumbs.db
+
+# Fichiers spécifiques aux IDEs et éditeurs de texte
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+/.vscode/
+*.sublime-workspace
+
+# Fichiers spécifiques à Next.js et Vercel
+.vercel
+next-env.d.ts
+*.tsbuildinfo
+
+# Autres fichiers à ignorer
+*.pid
+*.pid.lock
+pids

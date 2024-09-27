@@ -1,0 +1,85 @@
+lien de documentation : 
+
+nextjs: https://nextjs.org/
+nestjs:https://nestjs.com/
+graphql: https://typeorm.io/select-query-builder#adding-group-by-expression
+typeorm : https://typeorm.io/select-query-builder#adding-group-by-expression
+
+************************************************************
+CREATE TABLE person (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    lastName VARCHAR(100) NOT NULL,
+    firstName VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    phoneNumber VARCHAR(20) NOT NULL
+);
+************************************************************
+
+CREATE TABLE animal (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    dateOfBirth DATE NOT NULL,
+    species VARCHAR(100) NOT NULL,
+    breed VARCHAR(150) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    weight DECIMAL(5, 2) NOT NULL,
+    ownerId INT,
+    FOREIGN KEY (ownerId) REFERENCES person(id) ON DELETE SET NULL
+);
+
+************************************************************
+Quel animal est le plus vieux ?
+
+SELECT name, dateOfBirth, species, breed
+FROM animal
+ORDER BY dateOfBirth ASC
+LIMIT 1;
+
+************************************************************
+Quelle espèce est la mieux représentée ? (Le plus d’entité de cette espèce)
+
+SELECT species, COUNT(*) AS count
+FROM animal
+GROUP BY species
+ORDER BY count DESC
+LIMIT 1;
+
+************************************************************
+Quelle personne possède le plus d’animaux ?oui
+
+SELECT p.firstName, p.lastName, COUNT(a.id) AS animal_count
+FROM person p
+JOIN animal a ON p.id = a.ownerId
+GROUP BY p.id
+ORDER BY animal_count DESC
+LIMIT 1;
+
+************************************************************
+Quelle personne possède le plus de chats ?
+
+SELECT p.firstName, p.lastName, COUNT(a.id) AS cat_count
+FROM person p
+JOIN animal a ON p.id = a.ownerId
+WHERE a.species = 'cat'  
+GROUP BY p.id
+ORDER BY cat_count DESC
+LIMIT 1;
+
+************************************************************
+Qui possède l’animal le plus lourd ? Comment s’appelle cet animal et quel est son poids ?
+
+SELECT p.firstName, p.lastName, a.name AS animal_name, a.weight
+FROM person p
+JOIN animal a ON p.id = a.ownerId
+ORDER BY a.weight DESC
+LIMIT 1;
+
+************************************************************
+Qui possède le groupe d’animaux le plus lourd ? Quel est le poids total de ce groupe d’animaux ?
+
+SELECT p.firstName, p.lastName, SUM(a.weight) AS total_weight
+FROM person p
+JOIN animal a ON p.id = a.ownerId
+GROUP BY p.id
+ORDER BY total_weight DESC
+LIMIT 1;
