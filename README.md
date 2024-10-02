@@ -87,7 +87,7 @@ npm install
 ### Configurez l'environnement de variable .env
 
 .env
-NEXT_PUBLIC_API_URL=http://localhost:3000/graphql
+NEXT_PUBLIC_GRAPHQL_URI=http://localhost:3000/graphql
 
 ### Demarrer nextjs
 
