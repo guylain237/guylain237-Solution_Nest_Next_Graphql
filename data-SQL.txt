@@ -14,7 +14,7 @@ INSERT INTO person (lastName, firstName, email, phoneNumber) VALUES
 ('Wilson', 'Mike', 'mike.wilson13@example.com', '555-0963'),
 ('White', 'John', 'john.white14@example.com', '555-0168'),
 ('Wilson','', 'david.lee17@example.com', '555-0835'),
-('Brown', 'Sophia''Emily', 'emily.wilson15@example.com', '555-0962'),
+('Brown', 'Sophia', 'sophia.wilson15@example.com', '555-0962'),
 ('White', 'Sophia', 'sophia.white16@example.com', '555-0338'),
 ('Lee', 'David', 'sophia.brown18@example.com', '555-0943'),
 ('Doe', 'Emily', 'emily.doe19@example.com', '555-0335'),
