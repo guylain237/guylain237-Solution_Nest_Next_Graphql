@@ -31,11 +31,11 @@ Ce projet est une application CRUD complète utilisant **NestJS** pour l'API bac
    CREATE TABLE animal (
        id INT AUTO_INCREMENT PRIMARY KEY,
        name VARCHAR(255) NOT NULL,
-       dateOfBirth DATE NOT NULL,
+       dateOfBirth DATETIME NOT NULL,
        species VARCHAR(100) NOT NULL,
        breed VARCHAR(150) NOT NULL,
        color VARCHAR(50) NOT NULL,
-       weight DECIMAL(5, 2) NOT NULL,
+       weight BIGINT NOT NULL,
        ownerId INT,
        FOREIGN KEY (ownerId) REFERENCES person(id) ON DELETE SET NULL
    );
